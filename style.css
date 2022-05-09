@@ -1,0 +1,283 @@
+/*
+Theme Name: Jobsity Challenge
+Author: Alejandro Bores
+Version: 1.0
+*/
+
+:root {
+
+  --mnr-colorWhite:  white;
+  
+  --mnr-contentWidth: 1336px;
+
+  --mnr-fontS1: 60px;
+  --mnr-fontS2: 43px;
+  --mnr-fontS3: 25px;
+  --mnr-fontS4: 17px;
+  --mnr-fontS5: 15px;
+  --mnr-fontS6: 9px;
+  --mnr-titleSpacing: 2.5px;
+
+  --mnr-btnRadius: 0;
+  --mnr-btnHeight: 55px
+}
+
+@font-face {
+  font-family: 'title';
+  font-display: swap;
+  src: url('./assets/Montserrat-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'regular';
+  font-display: swap;
+  src: url('./assets/Poppins-Regular.ttf') format('truetype');
+}
+
+@media only screen and (max-width: 600px){
+  :root {
+   --mnr-fontS1: 40px;
+   --mnr-fontS2: 30px;
+   --mnr-fontS3: 18px;
+   --mnr-fontS4: 16px;
+  }
+}
+
+main{
+  opacity: 0;
+  padding-top: 150px;
+}
+[mnr-page-loading="false"] main{
+  opacity: 1;
+}
+
+
+.backShadow::before{
+  content:  "";
+  height:   100%;
+  width:    100%;
+  background-color: black;
+  opacity:  0.2;
+  position: absolute;
+  z-index:  1;
+}
+
+
+.spinner{
+  margin: 50px auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--mnr-colorBlack);
+  background: -moz-linear-gradient(left, var(--mnr-colorBlack) 10%, white 42%);
+  background: -webkit-linear-gradient(left, var(--mnr-colorBlack) 10%, white 42%);
+  background: -o-linear-gradient(left, var(--mnr-colorBlack) 10%, white 42%);
+  background: -ms-linear-gradient(left, var(--mnr-colorBlack) 10%, white 42%);
+  background: linear-gradient(to right, var(--mnr-colorBlack) 10%, white 42%);
+  position: relative;
+  -webkit-animation: load3 0.8s infinite linear;
+  animation: load3 0.8s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.spinner.ok{
+  background: var(--mnr-colorOk);
+  background: -moz-linear-gradient(left, var(--mnr-colorOk) 10%, white 42%);
+  background: -webkit-linear-gradient(left, var(--mnr-colorOk) 10%, white 42%);
+  background: -o-linear-gradient(left, var(--mnr-colorOk) 10%, white 42%);
+  background: -ms-linear-gradient(left, var(--mnr-colorOk) 10%, white 42%);
+  background: linear-gradient(to right, var(--mnr-colorOk) 10%, white 42%);
+}
+.spinner:after {
+  background: white;
+  width: 92%;
+  height: 92%;
+  border-radius: 50%;
+  content: '';
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  -webkit-transition: all .8s;
+  -moz-transition: all .8s;
+  -o-transition: all .8s;
+  -ms-transition: all .8s;
+  transition: all .8s;
+}
+
+
+
+@-webkit-keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.scrollShow{
+  display: none;
+}
+.scrolled .scrollShow{
+  display: block;
+}
+
+
+.asp{
+  padding-top:56.25%
+}
+
+/*modal*/
+.extraScreen{
+  height: 100vh;
+  top: -120vh;
+  left: 0;
+  position: fixed;
+  margin:auto;
+}
+.extraScreen.open{
+  top: 0;
+}
+
+
+
+/*buttons*/
+.button.hide{
+  display: none!important;
+}
+.button,
+input[type="submit"]{
+  background-color: var(--mnr-colorBlack);
+  border-radius: 23px;
+  max-width: 300px;
+}
+.button,
+input[type="submit"],
+.button > *{
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'title';
+  font-size: var(--mnr-fontS5);
+}
+.buttonRound{
+  width: var(--mnr-btnHeight);
+  border-radius: 50%;
+}
+
+.iconHover:hover .svg{
+  transform: scale(1.1);
+}
+
+.button.button2{
+  border: solid 1px var(--mnr-colorBlack);
+  background-color: white;
+}
+.button.button2,
+.button.button2 > *{
+  color: var(--mnr-colorBlack);
+  max-width: 200px;
+}
+.button.button2:hover{
+  background-color:var(--mnr-colorBlack);
+}
+.button.button2:hover,
+.button.button2:hover > *{
+  color: white;
+}
+
+/*movies & actors*/
+.cardsHolder{
+  --mnr-gap:  50px;
+  margin-left: calc(-1 * var(--mnr-gap));
+  width: calc(100% + var(--mnr-gap));
+  max-width: unset;
+  padding-top: 40px;
+  position: relative;
+}
+.cardsHolder .card{
+  width: calc(20% - var(--mnr-gap));
+  margin: 20px 0px 20px var(--mnr-gap);
+}
+.cardsHolder .message{
+  width: calc(100% - var(--mnr-gap));
+  margin: 20px 0px 20px var(--mnr-gap);
+}
+.cardsHolder .card[show="false"]{
+  display: none;
+}
+.cardsHolder .card .img{
+  width: 100%;
+  height: auto;
+  box-shadow: 1px -1px 20px 0px rgb(0 0 0 / 30%);
+  margin-bottom: 10px;
+  min-height: 100px;
+}
+.cardsHolder .card:hover .img{
+  box-shadow: 1px -1px 40px 0px rgb(0 0 0 / 20%);
+  transform: scale(1.05);
+}
+.cardsHolder .card .noPoster{
+  padding-top: 150%;
+}
+
+@media only screen and (max-width: 800px){
+  .cardsHolder .card{
+    width: calc(25% - var(--mnr-gap));
+  }
+}
+@media only screen and (max-width: 600px){
+  .cardsHolder .card{
+    width: calc(33.33% - var(--mnr-gap));
+  }
+}
+@media only screen and (max-width: 500px){
+  .cardsHolder .card{
+    width: calc(50% - var(--mnr-gap));
+  }
+}
+
+.wishBtn .wish:hover{
+  transform: scale(1.2);
+}
+.wished{
+  opacity: 0;
+}
+[wished="true"] .toWish{
+  opacity: 0;
+}
+[wished="true"] .wished{
+  opacity: 1;
+}
+
+
+@media only screen and (max-width: 600px){
+  #filterBar .content{
+    flex-wrap: wrap;
+  }
+  #filterBar .inputHolder{
+    width: 50%;
+  }
+  #filterBar .button{
+    width : calc(50% - 20px);
+  }
+  #filterBar .inputHolder,
+  #filterBar .button{
+     margin-top: 10px;
+  }
+}
